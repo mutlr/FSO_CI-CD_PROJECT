@@ -14,13 +14,16 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 'latest'
-      - name: Install dependencies 
-        run: npm install  
-      - name: Check style        
+      - name: Install dependencies backend
+        working-directory: CI_CD_PROJECT
+        run: npm install
+      - name: Install dependencies frontend
+        working-directory: bloglist-frontend
+        run: npm install
+      - name: Check style backend
+        working-directory: CI_CD_PROJECT       
         run: npm run eslint
-      - name: Test bacikend
-        uses: actions/checkout@v3
-        with:
-          command: npm run test
-          start: npm run start:test
+      - name: Check style frontend
+        working-directory: bloglist-frontend       
+        run: npm run eslint
           
