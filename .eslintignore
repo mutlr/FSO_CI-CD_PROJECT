@@ -1,4 +1,2 @@
-build
 .eslintrc.js
-./bloglist-frontend
-cypress.config.js
+bloglist-frontend
