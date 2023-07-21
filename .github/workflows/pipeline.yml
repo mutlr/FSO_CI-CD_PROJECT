@@ -15,15 +15,15 @@ jobs:
         with:
           node-version: 'latest'
       - name: Install dependencies backend
-        working-directory: CI_CD_PROJECT
+        working-directory: ./
         run: npm install
       - name: Install dependencies frontend
-        working-directory: bloglist-frontend
+        working-directory: ./bloglist-frontend
         run: npm install
       - name: Check style backend
-        working-directory: CI_CD_PROJECT       
+        working-directory: ./       
         run: npm run eslint
       - name: Check style frontend
-        working-directory: bloglist-frontend       
+        working-directory: ./bloglist-frontend       
         run: npm run eslint
           
