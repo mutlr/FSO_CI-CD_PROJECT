@@ -6,10 +6,6 @@ const Blog = require('../models/blog')
 const User = require('../models/user')
 
 describe('User creating tests', () => {
-  beforeAll(async () => {
-    const users = await helper.usersInDb()
-    console.log('Users in db: ', users)
-  })
   test('Creating an user', async () => {
     const usersAtStart = await helper.usersInDb()
     const user = {
