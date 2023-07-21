@@ -28,6 +28,8 @@ jobs:
         run: echo "MONGODB_URI=${MONGODB_URI}" >> .env
       - name: Start backend test
         run: npm run start:test
+      - name: Wait for Server to Start
+        run: sleep 10
       - name: Test backend
         run: npm run test
 
