@@ -17,12 +17,17 @@ jobs:
       - name: Install dependencies backend
         working-directory: ./
         run: npm install
-      - name: Install dependencies frontend
-        working-directory: ./bloglist-frontend
-        run: npm install
       - name: Check style backend
         working-directory: ./       
         run: npm run eslint
+      - name: Start backend test
+        run: npm start:test
+      - name: Test backend
+        run: npm run test
+
+      - name: Install dependencies frontend
+        working-directory: ./bloglist-frontend
+        run: npm install
       - name: Check style frontend
         working-directory: ./bloglist-frontend       
         run: npm run eslint
