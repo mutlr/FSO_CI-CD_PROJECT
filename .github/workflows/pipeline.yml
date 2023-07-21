@@ -27,7 +27,7 @@ jobs:
           PORT: 3003
         run: echo "MONGODB_URI=${MONGODB_URI}" >> .env
       - name: Start backend test
-        run: npm run start:test
+        run: npm run dev
       - name: Test backend
         run: npm run test
 
