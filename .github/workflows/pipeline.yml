@@ -22,7 +22,7 @@ jobs:
         run: npm run eslint
       - name: Start backend test
         env:
-          TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
+          TEST_MONGODB_URI: ${{ secrets.MONGODB_URI }}
         run: npm run start:test
       - name: Test backend
         run: npm run test
