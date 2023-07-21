@@ -21,7 +21,7 @@ jobs:
         working-directory: ./       
         run: npm run eslint
       - name: Start backend test
-        run: npm start:test
+        run: npm run start:test
       - name: Test backend
         run: npm run test
 
