@@ -26,4 +26,8 @@ jobs:
       - name: Check style frontend
         working-directory: ./bloglist-frontend       
         run: npm run eslint
+      - name: Build frontend
+        working-directory: ./bloglist-frontend
+        run: npm run build
+          
           
