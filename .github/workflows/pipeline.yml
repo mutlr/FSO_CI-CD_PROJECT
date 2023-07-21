@@ -18,5 +18,10 @@ jobs:
         run: npm install  
       - name: Check style        
         run: npm run eslint
-      - name: Test
-        run: npm run test
+      - name: Test bacikend
+        uses: stefanoeb/jest-action@1.0.3
+        with:
+          jestArgs: ./tests/*.test.js
+          command: npm run test
+          start: npm run start:test
+          
