@@ -27,6 +27,7 @@ jobs:
         run: npm run eslint
       - name: Test backend
         run: npm run test
+
       - name: Install dependencies frontend
         working-directory: ./bloglist-frontend
         run: npm install
@@ -36,5 +37,12 @@ jobs:
       - name: Build frontend
         working-directory: ./bloglist-frontend
         run: npm run build
+      - name: e2e tests
+        uses: cypress-io/github-action@v5
+        with:
+          command: npm run test:e2e
+          start: npm run start:test
+          wait-on: http://localhost:3001
+      
           
           
