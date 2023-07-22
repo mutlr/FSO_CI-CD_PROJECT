@@ -77,7 +77,5 @@ describe('total likes', () => {
 })
 
 test('most likes', () => {
-  console.log('Most likes: ', listHelper.favoriteBlog(blogs))
-  console.log('Most likes! : ', blogs[0])
   expect(listHelper.favoriteBlog(blogs)).toEqual(blogs[0])
 })
