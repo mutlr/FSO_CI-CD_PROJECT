@@ -6,7 +6,7 @@
     "scripts": {
         "start": "node index.js",
         "dev": "nodemon index.js",
-        "test": "jest --verbose ./tests --runInBand",
+        "test": "cross-env NODE_ENV=test jest --verbose ./tests --runInBand",
         "eslint": "eslint \"./**/*.{js,jsx}\"",
         "start:test": "set NODE_ENV=test&& node index.js"
     },
@@ -26,6 +26,7 @@
         "mongoose-unique-validator": "^3.1.0"
     },
     "devDependencies": {
+        "cross-env": "^7.0.3",
         "eslint": "^8.45.0",
         "jest": "^29.3.1",
         "nodemon": "^2.0.20",

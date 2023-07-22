@@ -222,6 +222,6 @@ describe('Blog tests', () => {
       .expect(200)
     const updatedBlogs = await helper.blogsInDb()
     const newBlog = updatedBlogs[updatedBlogs.length - 1]
-    expect(newBlog.likes).toBe(100)
+    expect(newBlog.likes).toBe(1000)
   })
 })
