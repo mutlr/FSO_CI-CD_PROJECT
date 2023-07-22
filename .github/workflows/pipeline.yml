@@ -12,7 +12,8 @@ jobs:
     env:
       MONGODB_URI: ${{ secrets.MONGODB_URI }}
       TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
-      PORT: 3003
+      PORT: ${{ secrets.PORT }}
+      SECRET: ${{ secrets.SECRET }}
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -24,8 +25,6 @@ jobs:
       - name: Check style backend
         working-directory: ./       
         run: npm run eslint
-      - name: Start server
-        run: npm run start:test
       - name: Test backend
         run: npm run test
       - name: Install dependencies frontend
