@@ -8,7 +8,7 @@
         "dev": "nodemon index.js",
         "test": "cross-env jest --verbose ./tests --runInBand",
         "eslint": "eslint \"./**/*.{js,jsx}\"",
-        "start:test": "node index.js",
+        "start:test": "cross-env NODE_ENV=test node index.js",
         "test:e2e": "cd bloglist-frontend && npm run test:e2e"
     },
     "author": "",
