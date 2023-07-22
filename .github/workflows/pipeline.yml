@@ -24,6 +24,8 @@ jobs:
       - name: Check style backend
         working-directory: ./       
         run: npm run eslint
+      - name: Start server
+        run: npm run:start
       - name: Test backend
         run: npm run test
       - name: Install dependencies frontend
