@@ -1,10 +1,6 @@
 #!/bin/bash
+npm run start:test
+cd bloglist-frontend
+npm start
+npm run test:e2e
 
-      - name: Install dependencies backend
-        working-directory: ./
-        run: npm install
-      - name: Check style backend
-        working-directory: ./       
-        run: npm run eslint
-      - name: Test backend
-        run: npm run test
