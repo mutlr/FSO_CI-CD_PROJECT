@@ -37,7 +37,7 @@ jobs:
         working-directory: ./bloglist-frontend
         run: npm run build
       - name: Start server and frontend
-        run: npm run start:test
+        run: npm run start dev
       - name: e2e test with Cypress
         uses: cypress-io/github-action@v5
         with:
