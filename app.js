@@ -11,7 +11,6 @@ const usersRouter = require('./controllers/users')
 const loginRouter = require('./controllers/login')
 
 if (process.env.NODE_ENV === 'test') {
-  console.log('menee tänne, ', config.PORT, 'and ', config.MONGODB_URI)
   const testingRouter = require('./controllers/testing')
   app.use('/api/testing', testingRouter)
 }
