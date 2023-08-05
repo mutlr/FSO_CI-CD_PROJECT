@@ -23,7 +23,7 @@ jobs:
       - name: Start backend
         run: npm start:test
       - name: Test backend
-        run: npm run test
+        run: npm run start:test
       - name: Install dependencies frontend
         working-directory: ./bloglist-frontend
         run: npm install
