@@ -21,6 +21,7 @@ jobs:
         working-directory: ./       
         run: npm run eslint
       - name: Start backend
+        working-directory: ./
         env: 
           MONGODB_URI: ${{ secrets.MONGODB_URI }}
           TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
