@@ -27,7 +27,7 @@ jobs:
           TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
           PORT: ${{ secrets.PORT }}
           SECRET: ${{ secrets.SECRET }}
-        run: cross-env NODE_ENV=test node index.js
+        run: run cross-env NODE_ENV=test node index.js
       - name: Test backend
         run: npm run test
       - name: Install dependencies frontend
