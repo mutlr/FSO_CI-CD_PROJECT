@@ -9,8 +9,9 @@ require('express-async-errors')
 const blogsRouter = require('./controllers/blogs')
 const usersRouter = require('./controllers/users')
 const loginRouter = require('./controllers/login')
-
+console.log('ENV: ', process.env.NODE_ENV )
 if (process.env.NODE_ENV === 'test') {
+  console.log('menee tänne')
   const testingRouter = require('./controllers/testing')
   app.use('/api/testing', testingRouter)
 }

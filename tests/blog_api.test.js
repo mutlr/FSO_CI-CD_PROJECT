@@ -24,7 +24,7 @@ describe('User creating tests', () => {
   test('Name must be unique', async () => {
     const usersAtStart = await helper.usersInDb()
     const user = {
-      username: 'Testi',
+      username: 'Testuser',
       name: 'John cena',
       password: 'Hello'
     }

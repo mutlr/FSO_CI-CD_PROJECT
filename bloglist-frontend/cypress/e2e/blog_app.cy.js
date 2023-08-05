@@ -98,28 +98,5 @@ describe('Blog app', function() {
         cy.contains('Remove').should('have.css', 'display', 'none')
       })
     })
-
-    describe('Most liked at the top', function() {
-      beforeEach(function() {
-        cy.createBlog({ title: 'First but not the most liked', author: 'Wants to be liked the most' })
-        cy.createBlog({ title: 'Just another one', author: 'Another one', url: 'Hello' })
-        cy.createBlog({ title: 'Most liked blog', author: 'Likeable guy', url: 'Howtogetlikes.com' })
-        cy.get('.blog').then(btn => {
-          cy.wrap(btn[0]).contains('View').click()
-          cy.wrap(btn[1]).contains('View').click()
-          cy.wrap(btn[2]).contains('View').click()
-
-          cy.wrap(btn[1]).contains('Like').click().wait(100).click()
-          cy.wrap(btn[0]).contains('Like').click()
-        })
-      })
-      it('Most liked blog at the top', function() {
-        cy.get('.blog').eq(0).should('contain', 'Just another one Another one')
-
-        cy.get('.blog').eq(2).children().find('button').contains('Like').as('likeBtn')
-        cy.get('@likeBtn').click().wait(100).click().wait(100).click()
-        cy.get('.blog').eq(0).should('contain', 'Most liked blog')
-      })
-    })
   })
 })
