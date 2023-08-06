@@ -26,7 +26,7 @@ jobs:
         working-directory: ./       
         run: npm run eslint
       - name: Test backend
-        run: npm run backendTest
+        run: npm run test
       - name: Install dependencies frontend
         working-directory: ./bloglist-frontend
         run: npm install
