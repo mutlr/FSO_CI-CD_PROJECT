@@ -6,7 +6,7 @@ describe('Blog app', function() {
       name: 'Tester',
       password: 'Test'
     }
-    cy.request('POST', `${Cypress.env('BACKEND')}//api/users`, user)
+    cy.request('POST', `${Cypress.env('BACKEND')}/api/users`, user)
     cy.visit('')
   })
 
@@ -91,7 +91,7 @@ describe('Blog app', function() {
           name: 'Tester2',
           password: 'Test'
         }
-        cy.request('POST', `${Cypress.env('BACKEND')}//api/users`, user)
+        cy.request('POST', `${Cypress.env('BACKEND')}/api/users`, user)
         cy.login({ username: 'Testuser2', password: 'Test' })
         cy.contains('Logged in as Tester2')
         cy.contains('View').click()
