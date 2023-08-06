@@ -9,6 +9,11 @@ on:
 jobs:
   simple_deployment_pipeline:
     runs-on: ubuntu-latest
+    env: 
+      MONGODB_URI: ${{ secrets.MONGODB_URI }}
+      TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
+      PORT: ${{ secrets.PORT }}
+      SECRET: ${{ secrets.SECRET }}
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -20,16 +25,8 @@ jobs:
       - name: Check style backend
         working-directory: ./       
         run: npm run eslint
-      - name: Start backend
-        working-directory: ./
-        env: 
-          MONGODB_URI: ${{ secrets.MONGODB_URI }}
-          TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
-          PORT: ${{ secrets.PORT }}
-          SECRET: ${{ secrets.SECRET }}
-        run: npm run start:test
       - name: Test backend
-        run: npm run test
+        run: npm run backendTest
       - name: Install dependencies frontend
         working-directory: ./bloglist-frontend
         run: npm install

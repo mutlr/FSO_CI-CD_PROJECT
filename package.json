@@ -4,6 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
+        "backendTest": "npm run start:test && npm run test",
         "start": "node index.js",
         "dev": "nodemon index.js",
         "test": "jest --verbose ./tests --runInBand",
