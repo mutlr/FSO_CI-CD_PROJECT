@@ -1,6 +1,3 @@
 #!/bin/bash
-npm run start:test
-cd bloglist-frontend
-npm start
-npm run test:e2e
-
+cd bloglist-frontend && npm install
+cd bloglist-frontend && npm run build
