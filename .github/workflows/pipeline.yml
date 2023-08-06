@@ -36,5 +36,11 @@ jobs:
       - name: Build frontend
         working-directory: ./bloglist-frontend
         run: npm run build
+      - name: Test frontend
+        uses: cypress-io/github-action@v5
+        with:
+          command: npm run test:e2e
+          start: npm run start:test
+          wait-on: http://localhost:3000
       
           
