@@ -11,7 +11,7 @@
         "eslint": "eslint \"./**/*.{js,jsx}\"",
         "start:test": "NODE_ENV=test node index.js",
         "test:e2e": "cd bloglist-frontend && npm run test:e2e",
-        "start-prod": "cd bloglist-frontend && npm run start build"
+        "start-prod": "cd bloglist-frontend && npm start"
     },
     "author": "",
     "license": "ISC",
