@@ -59,3 +59,27 @@ jobs:
         with:
           service-id: ${{ secrets.RENDER_SERVICE_ID }}
           api-key: ${{ secrets.RENDER_API_KEY }}
+      - name: Build successfull
+        uses: rjstone/discord-webhook-notify@89b0bf43c2c8514f70d0dcba4a706b904e8a3112
+        if: ${{ success() }}
+        with:
+          description: New version of Bloglist deployed
+          severity: info
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+      - name: Build failed
+        uses: rjstone/discord-webhook-notify@89b0bf43c2c8514f70d0dcba4a706b904e8a3112
+        if: ${{ failure() }}
+        with:
+          description: Failure. Bye
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+  tag_release:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' && !contains(github.event.head_commit.message, '#skip')}}
+    needs: [build, simple_deployment_pipeline]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@72cc9b65fd4cdd0de63b8dd7c098e1741ae0951a
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BUMP: patch
