@@ -47,7 +47,7 @@ jobs:
         uses: rjstone/discord-webhook-notify@89b0bf43c2c8514f70d0dcba4a706b904e8a3112
         if: ${{ failure() }}
         with:
-          description: Commit ${{ github.server_url}}/${{ github.repository }}/commit/${{ github.sha }} by ${{ github.repository_owner }} broke the build
+          description: broken
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
   build:
     runs-on: ubuntu-latest
