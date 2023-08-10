@@ -20,7 +20,7 @@ describe('Blog app', function() {
     it('succeeds with correct credentials', function() {
       // ...
       cy.get('#username').type('Testuser')
-      cy.get('#password').type('Tet')
+      cy.get('#password').type('Test')
       cy.get('#loginButton').click()
       cy.contains('Logged in as Tester')
     })
