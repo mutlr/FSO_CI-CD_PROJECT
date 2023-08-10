@@ -95,7 +95,7 @@ describe('Blog tests', () => {
 
   beforeAll(async () => {
     const result = await api.post('/api/login')
-      .send({ username: 'Testuser', password: 'Test' })
+      .send({ username: 'Testuser', password: 'Tes' })
     token = result.body.token
     const users = await helper.usersInDb()
     user = users[0]
