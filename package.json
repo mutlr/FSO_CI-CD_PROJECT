@@ -10,8 +10,7 @@
         "eslint": "eslint \"./**/*.{js,jsx}\"",
         "start:test": "NODE_ENV=test node index.js",
         "test:e2e": "cd bloglist-frontend && npm run test:e2e",
-        "start-prod": "cd bloglist-frontend && npm start",
-        "build:ui": "rm -rf build && cd bloglist-frontend && npm run build && cp -r build ../"
+        "start-prod": "cd bloglist-frontend && npm start"
     },
     "author": "",
     "license": "ISC",
