@@ -173,7 +173,7 @@ describe('Blog tests', () => {
       user: user.id
     }
     await api.post('/api/blogs')
-      .set('authorization', `Beare ${token}`)
+      .set('authorization', `Bearer ${token}`)
       .send(blogWithoutAuthor)
       .expect(400)
 
