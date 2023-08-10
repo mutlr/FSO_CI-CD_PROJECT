@@ -55,7 +55,11 @@ jobs:
         working-directory: ./       
         run: npm run eslint
       - name: Test backend
+        id: backend_tests
         run: npm run test
+      - name: Stop workflow if backend tests failed
+        if: ${{ steps.backend_tests.outcome != 'success' }}
+        run: exit 1
       - name: Install dependencies frontend
         working-directory: ./bloglist-frontend
         run: npm install
