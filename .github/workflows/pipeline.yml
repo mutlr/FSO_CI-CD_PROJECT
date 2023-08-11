@@ -36,7 +36,7 @@ jobs:
           description: Health check success bloglist. Bye!
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
 
-  backend_tests:
+  simple_pipeline:
     runs-on: ubuntu-latest
     env: 
       MONGODB_URI: ${{ secrets.MONGODB_URI }}
@@ -62,21 +62,8 @@ jobs:
         uses: rjstone/discord-webhook-notify@89b0bf43c2c8514f70d0dcba4a706b904e8a3112
         if: ${{ failure() }}
         with:
-          description: Backend broken
+          description: Tests failed
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
-  frontend_tests:
-    runs-on: ubuntu-latest
-    needs: [backend_tests]
-    env: 
-      MONGODB_URI: ${{ secrets.MONGODB_URI }}
-      TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
-      PORT: ${{ secrets.PORT }}
-      SECRET: ${{ secrets.SECRET }}
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '16'
       - name: Install dependencies frontend
         working-directory: ./bloglist-frontend
         run: npm install
@@ -97,13 +84,13 @@ jobs:
         uses: rjstone/discord-webhook-notify@89b0bf43c2c8514f70d0dcba4a706b904e8a3112
         if: ${{ failure() }}
         with:
-          description: Frontend broken
+          description: Tests failed
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
 
   build:
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'push' && !contains(github.event.head_commit.message, '#skip') }}
-    needs: [backend_tests, frontend_tests]
+    needs: [simple_pipeline]
     steps:
       - name: Deploy to production
         uses: johnbeynon/render-deploy-action@v0.0.8
@@ -126,7 +113,7 @@ jobs:
   tag_release:
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'push' && !contains(github.event.head_commit.message, '#skip')}}
-    needs: [build, backend_tests, frontend_tests]
+    needs: [build, simple_pipeline]
     steps:
       - uses: actions/checkout@v3
       - name: Bump version and push tag
