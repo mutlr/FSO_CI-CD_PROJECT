@@ -56,14 +56,6 @@ jobs:
         run: npm run eslint
       - name: Run backend tests
         run: npm run test
-        continue-on-error: false
-        id: backend_tests_result
-      - name: Tests failed
-        uses: rjstone/discord-webhook-notify@89b0bf43c2c8514f70d0dcba4a706b904e8a3112
-        if: ${{ failure() }}
-        with:
-          description: Tests failed
-          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
       - name: Install dependencies frontend
         working-directory: ./bloglist-frontend
         run: npm install
