@@ -147,7 +147,7 @@ describe('Blog tests', () => {
       user: user.id
     }
     await api.post('/api/blogs')
-      .set('authorization', `Bearer ${token}1`)
+      .set('authorization', `Beare ${token}1`)
       .send(blog)
       .expect(400)
       .expect('{"error":"token missing or invalid"}')
