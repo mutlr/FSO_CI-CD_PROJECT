@@ -86,7 +86,7 @@ describe('Login tests', () => {
     }
     await api.post('/api/login')
       .send(user)
-      .expect(401)
+      .expect(400)
   })
 })
 
